@@ -68,16 +68,13 @@ input:focus {
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
-  border: 1px solid red;
-  max-height: 90vh;
+  height: 80vh;
 }
-.task-inputs {
-  display: none;
-}
+
+
 .task-inputs,
 .tasks-section {
-  border: 1px solid blue;
-  flex-basis: 40%;
+  flex-basis: 55%;
   padding: 0.5rem;
   background: linear-gradient(
     to right,
@@ -102,10 +99,6 @@ input:focus {
   padding: 0.4rem 1.5rem;
 }
 
-.taskForm {
-  /* width: 100%; */
-  flex-basis: 30%;
-}
 
 .input-container {
   display: flex;
@@ -125,7 +118,6 @@ input:focus {
 .input-container input {
   flex-basis: 100%;
   background: transparent;
-  /* border: 1px solid red; */
 }
 
 .input-container span {
@@ -145,6 +137,7 @@ input:focus {
 
 .taskBtn-container {
   background: transparent;
+  border: none !important;
 }
 
 .form-btn {
@@ -172,7 +165,7 @@ input:focus {
   -o-border-radius: 1rem;
 }
 
-/* task organizing */
+/* task organizing **********************************/
 .tasks-section {
   background: #f9f9f9;
   flex-basis: 100%;
@@ -191,7 +184,7 @@ input:focus {
   overflow-y: scroll;
   width: 100%;
   height: 100%;
-  padding: 0.5rem 0 3.5rem 0;
+  padding: 0.5rem 0 8.5rem 0;
 }
 
 .task {
@@ -221,7 +214,7 @@ input:focus {
   height: 90px;
   bottom: -60%;
   left: 30%;
-  z-index: 1;
+  z-index: 100;
   border-radius: 0.3rem;
   -webkit-border-radius: 0.3rem;
   -moz-border-radius: 0.3rem;
@@ -239,6 +232,16 @@ input:focus {
   -o-transform: translateY(-30px);
   opacity: 0;
   display: none;
+}
+
+.captionShow{
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  opacity: 1;
+  display: block;
 }
 
 .taskCaption::after {
@@ -298,24 +301,26 @@ input:focus {
   padding: 0.3rem 0.5rem;
 }
 
-/* a modal to delete the task */
-.delete-overlay {
+/* a modal to delete the task **************************/
+.delete-overlay,
+.edit-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.93);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   scale: 0;
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
+
 
 .deleteModal {
   background-color: #fff;
@@ -340,43 +345,73 @@ input:focus {
   width: 100%;
 }
 
-.deletModal-buttons button{
-    padding: 0.5rem 2rem;
+.deletModal-buttons button {
+  padding: 0.5rem 2rem;
 }
 
-.deleteBar{
-    position: absolute;
-    top: 0;
-    left: 0;
+.deleteBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  background-color: #ff0000;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.addAnim {
+  animation: del linear 5s infinite;
+  -webkit-animation: del linear 5s infinite;
+}
+
+@keyframes del {
+  0% {
     width: 100%;
-    height: 5%;
-    background-color: #ff0000;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
+  }
+  25% {
+    width: 75%;
+  }
+  50% {
+    width: 50%;
+  }
+  75% {
+    width: 25%;
+  }
+  100% {
+    width: 0;
+  }
 }
 
-.addAnim{
-  animation: del linear 5s infinite ;
-    -webkit-animation: del linear 5s infinite ;
+/* a modal to edit task */
+
+.edit-overlay form {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1.5rem;
+  width: 70%;
+  margin: 0 auto;
 }
 
-@keyframes del{
-    0%{
-        width: 100%;
-    }
-    25%{
-        width:75% ;
-    }
-    50%{
-        width: 50%;
-    }
-    75%{
-        width:25% ;
-    }
-    100%{
-        width: 0;
-    }
+
+
+.edit-overlay form .input-container {
+  border: 1px solid #1488cc;
+  background: transparent ;
+}
+
+.edit-overlay form .input-container input{
+  color: #fff;
+  background: transparent;
+}
+
+.editmodal-btn-con button{
+  padding: 0.5rem 2rem;
 }

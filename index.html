@@ -18,7 +18,7 @@
                 <!-- task title and darkmode btn -->
                 <div class="task-form-title">
                     <h1>ایجاد یادداشت</h1>
-                    <button type="button" id="modeBtn" >Dark</button>
+                    <button type="button" id="modeBtn">Dark</button>
                 </div>
                 <!-- task maker form -->
                 <form class="taskForm">
@@ -29,29 +29,30 @@
                     <div class="taskDate-container input-container">
                         <span class="material-symbols-outlined">
                             calendar_month
-                            </span>
-                        <input type="number" class="taskDateDay" placeholder="روز">
+                        </span>
+                        <input type="text" class="taskDateDay" placeholder="روز">
                         <span> / </span>
-                        <input type="number" class="taskDateMonth" placeholder="ماه">
+                        <input type="text" class="taskDateMonth" placeholder="ماه">
                         <span> / </span>
-                        <input type="number" class="taskDateYear" placeholder="سال">
+                        <input type="text" class="taskDateYear" placeholder="سال">
                     </div>
                     <div class="taskTime-container input-container">
                         <span class="material-symbols-outlined">
                             schedule
-                            </span>
-                        <input type="number" class="taskTimeHour" placeholder="ساعت">
+                        </span>
+                        <input type="text" class="taskTimeMinute" placeholder="دقیقه">
                         <span> : </span>
-                        <input type="number" class="taskTimeMinute" placeholder="دقیقه">
+                        <input type="text" class="taskTimeHour" placeholder="ساعت">
+
                     </div>
                     <div class="taskCaption-container input-container">
                         <span class="material-symbols-outlined">
                             info
-                            </span>
+                        </span>
                         <input type="text" class="taskCaptionInput" placeholder="توضیحات">
                     </div>
                     <div class="taskBtn-container input-container">
-                        <button type="button" class="btn form-btn makeBtn">افزودن</button>
+                        <button type="button" class="btn form-btn taskCreate makeBtn">افزودن</button>
                         <button type="reset" class="btn form-btn resetBtn">بازنشانی</button>
                     </div>
                 </form>
@@ -61,14 +62,14 @@
                 <div class="tasks-section-title">
                     <h1>یادداشت ها </h1>
                 </div>
-                <div class="tasks">
-                    <div class="task">
+                <div class="tasks" id="tasks">
+                    <!-- <div class="task">
                         <div class="task-img"></div>
                         <div class="task-body">
                             <h3>تماشای فوتبال</h3>
-                             <h4>27/4/1401</h4>
-                             <h5>ساعت 22.30</h5>
-                             <h6>تماشای فوتبال تیم های اسپانیا و مراکش </h6>
+                            <h4>27/4/1401</h4>
+                            <h5>ساعت 22.30</h5>
+                            <h6>تماشای فوتبال تیم های اسپانیا و مراکش </h6>
                         </div>
                         <div class="task-footer">
                             <button type="button" class="btn taskBtn makeBtn">حذف</button>
@@ -77,50 +78,91 @@
                         <div class="taskCaption">
                             <p>تماشای فوتبال برزیل المان از سری رقابت های جام جهانی 2020 قطر</p>
                         </div>
-                    </div><div class="task">
+                    </div>
+                    <div class="task">
                         <div class="task-img"></div>
                         <div class="task-body">
                             <h3>تماشای فوتبال</h3>
-                             <h4>27/4/1401</h4>
-                             <h5>ساعت 22.30</h5>
-                             <h6>تماشای فوتبال تیم های اسپانیا و مراکش </h6>
+                            <h4>27/4/1401</h4>
+                            <h5>ساعت 22.30</h5>
+                            <h6>تماشای فوتبال تیم های اسپانیا و مراکش </h6>
                         </div>
                         <div class="task-footer">
                             <button type="button" class="btn taskBtn makeBtn">حذف</button>
                             <button type="button" class="btn taskBtn resetBtn">ویرایش</button>
                         </div>
-                    </div><div class="task">
+                    </div>
+                    <div class="task">
                         <div class="task-img"></div>
                         <div class="task-body">
                             <h3>تماشای فوتبال</h3>
-                             <h4>25 / 7 / 1401</h4>
-                             <h5>ساعت 22.30</h5>
-                             <!-- <h6>تماشای فوتبال تیم های اسپانیا و مراکش </h6> -->
-                        </div>
+                            <h4>25 / 7 / 1401</h4>
+                            <h5>ساعت 22.30</h5>
+                            <<h6>تماشای فوتبال تیم های اسپانیا و مراکش </h6> -->
+                        <!-- </div>
                         <div class="task-footer">
                             <button type="button" class="btn taskBtn makeBtn">ویرایش</button>
                             <button type="button" class="btn taskBtn resetBtn">حذف</button>
-                        </div>
-                    </div>
-                    </div>
+                        </div> --> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="app.js"></script>
-    <div class="delete-overlay">
+    </div>
+    </div>
+    <div class="delete-overlay" id="deleteOverlay">
         <div class="deleteModal">
             <div class="deleteModal-title">
                 <h3>از حذف یادداشت مطمئنی ؟ </h3>
             </div>
             <div class="deletModal-buttons">
-                <button type="button" class="yesBtn taskBtn makeBtn">بلی </button>
-                <button type="button" class="noBtn taskBtn resetBtn">خیر</button>
+                <button type="button" id="yesBtn" class="yesBtn taskBtn makeBtn">بلی </button>
+                <button type="button" id="noBtn" class="noBtn taskBtn resetBtn">خیر</button>
             </div>
             <div class="deleteBar"></div>
         </div>
     </div>
+    <!-- an overlay for delete -->
+    <div class="edit-overlay">
+        <div class="edit-container">
+            <form class="taskForm">
+                <div class="taskName-container input-container">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                    <input type="text" placeholder="نام فعالیت" class="taskNameEdit">
+                </div>
+                <div class="taskDate-container input-container">
+                    <span class="material-symbols-outlined">
+                        calendar_month
+                    </span>
+                    <input type="text" class="taskDateDayEdit" placeholder="روز">
+                    <span> / </span>
+                    <input type="text" class="taskDateMonthEdit" placeholder="ماه">
+                    <span> / </span>
+                    <input type="text" class="taskDateYearEdit" placeholder="سال">
+                </div>
+                <div class="taskTime-container input-container">
+                    <span class="material-symbols-outlined">
+                        schedule
+                    </span>
+                    <input type="text" class="taskTimeHourEdit" placeholder="ساعت">
+                    <span> : </span>
+                    <input type="text" class="taskTimeMinuteEdit" placeholder="دقیقه">
+                </div>
+                <div class="taskCaption-container input-container">
+                    <span class="material-symbols-outlined">
+                        info
+                    </span>
+                    <input type="text" class="taskCaptionInput captionEdit" placeholder="توضیحات">
+                </div>
+                <div class="taskBtn-container input-container editmodal-btn-con">
+                    <button type="button"  id="editSubmit" class="form-btn makeBtn editSubmit">تایید</button>
+                    <button type="reset"  id="editCancel" class="form-btn resetBtn editCAncel">لغو</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 
 </html>
