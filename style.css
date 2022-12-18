@@ -15,7 +15,7 @@
 
 body {
   font-family: "vazir";
-  background: #ccc;
+  background: linear-gradient(to right, #77a1d3, #79cbca, #e684ae);
   position: relative;
 }
 a {
@@ -69,6 +69,13 @@ input:focus {
   display: flex;
   justify-content: flex-start;
   height: 80vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
 }
 
 
@@ -185,6 +192,7 @@ input:focus {
   width: 100%;
   height: 100%;
   padding: 0.5rem 0 8.5rem 0;
+  background: #eaedee;
 }
 
 .task {
@@ -193,15 +201,16 @@ input:focus {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
-  padding-left: 0.7rem;
   cursor: pointer;
-  background-color: #c9cbff;
+  /* background-color: #c9cbff; */
+  background: rgba(120, 190, 216, 0.3);
   position: relative;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
+  padding: 0.5rem 0.6rem;
 }
 .task:hover {
   box-shadow: 0px 0px 4px 5px;
@@ -414,4 +423,99 @@ input:focus {
 
 .editmodal-btn-con button{
   padding: 0.5rem 2rem;
+}
+
+/* ********************************* */
+.task-wait{
+  color: rgb(112, 108, 108) !important;
+  text-align: center;
+  transform: translateY(15rem);
+  -webkit-transform: translateY(15rem);
+  -moz-transform: translateY(15rem);
+  -ms-transform: translateY(15rem);
+  -o-transform: translateY(15rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-wait h1{
+  margin-left: 1.5rem ;
+}
+
+.task-wait span{
+  font-size: 2.5rem;
+}
+
+.zzz{
+  width: 15%;
+  height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  animation: slp linear 4s infinite ;
+  -webkit-animation: slp linear 4s infinite ;
+}
+
+.zzz span:nth-child(1){
+ transform: translateY(-45px) !important;
+ -webkit-transform: translateY(-45px) !important;
+ -moz-transform: translateY(-45px) !important;
+ -ms-transform: translateY(-45px) !important;
+ -o-transform: translateY(-45px) !important;
+}
+.zzz span:nth-child(2){
+  transform: translateY(-px);
+  -webkit-transform: translateY(-px);
+  -moz-transform: translateY(-px);
+  -ms-transform: translateY(-px);
+  -o-transform: translateY(-px);
+}
+ .zzz span:nth-child(3){
+  transform: translateY(-60px);
+  -webkit-transform: translateY(-60px);
+  -moz-transform: translateY(-60px);
+  -ms-transform: translateY(-60px);
+  -o-transform: translateY(-60px);
+}
+
+
+
+@keyframes slp {
+  0%{
+    transform: translateY(-25px);
+    -webkit-transform: translateY(-25px);
+    -moz-transform: translateY(-25px);
+    -ms-transform: translateY(-25px);
+    -o-transform: translateY(-25px);
+}
+25%{
+  transform: translateY(-35px);
+  -webkit-transform: translateY(-35px);
+  -moz-transform: translateY(-35px);
+  -ms-transform: translateY(-35px);
+  -o-transform: translateY(-35px);
+}
+50%{
+  transform: translateY(-45px);
+  -webkit-transform: translateY(-45px);
+  -moz-transform: translateY(-45px);
+  -ms-transform: translateY(-45px);
+  -o-transform: translateY(-45px);
+}
+75%{
+  transform: translateY(-55px);
+  -webkit-transform: translateY(-55px);
+  -moz-transform: translateY(-55px);
+  -ms-transform: translateY(-55px);
+  -o-transform: translateY(-55px);
+}
+100%{
+  transform: translateY(-70px);
+  -webkit-transform: translateY(-70px);
+  -moz-transform: translateY(-70px);
+  -ms-transform: translateY(-70px);
+  -o-transform: translateY(-70px);
+  opacity: 0;
+}
 }

@@ -20,6 +20,7 @@ var editCancel = document.getElementById("editCancel");
 var deleteOverlay = document.getElementById("deleteOverlay");
 var deleteBar = document.querySelector("div.deleteBar");
 var editOverlay = document.querySelector("div.edit-overlay");
+var taskWait = document.getElementById("taskWait")
 // an array for tasks
 var tasks = [];
 var counter = 0;
@@ -39,47 +40,46 @@ console.log(taskMonthInput);
 // the method helps to validate the information that we give from user
 
 var validation = () => {
-  // if (taskNameInput.value == "") {
-  //   alert("وارد کردن مقدار نام فعالیت الزامیست");
-  // }
+  if (taskNameInput.value == "") {
+    alert("وارد کردن مقدار نام فعالیت الزامیست");
+  }
 
-  // else if (isNaN(taskDayInput.value) || isNaN(taskMonthInput.value) || isNaN(taskYearInput.value)) {
-  //   alert("تاریخ وارد شده معتبر نمی باشد");
-  //   taskDayInput.value = "";
-  //   taskMonthInput.value = "";
-  //   taskYearInput.value = "";
-  // }
+  else if (isNaN(taskDayInput.value) || isNaN(taskMonthInput.value) || isNaN(taskYearInput.value)) {
+    alert("تاریخ وارد شده معتبر نمی باشد");
+    taskDayInput.value = "";
+    taskMonthInput.value = "";
+    taskYearInput.value = "";
+  }
 
-  // else if (
-  //   Number(taskDayInput.value) > 31 ||
-  //   Number(taskDayInput.value) < 1 ||
-  //   Number(taskMonthInput.value) > 12 ||
-  //   Number(taskMonthInput.value) < 1
-  // ) {
-  //   alert("تاریخ وارد شده معتبر نمی باشد");
-  //   taskDayInput.value = "";
-  //   taskMonthInput.value = "";
-  //   taskYearInput.value = "";
-  // }
+  else if (
+    Number(taskDayInput.value) > 31 ||
+    Number(taskDayInput.value) < 1 ||
+    Number(taskMonthInput.value) > 12 ||
+    Number(taskMonthInput.value) < 1
+  ) {
+    alert("تاریخ وارد شده معتبر نمی باشد");
+    taskDayInput.value = "";
+    taskMonthInput.value = "";
+    taskYearInput.value = "";
+  }
 
-  // else if (isNaN(taskTimeHourInput.value) || isNaN(taskTimeMinuteInput.value)) {
-  //   alert("لطفا مقادیر ساعت رابه صورت عددی وارد کنید  ");
-  //   taskTimeHourInput.value = "";
-  //   taskTimeMinuteInput.value = "";
-  // }
-  // else if (
-  //   taskTimeHourInput > 23 ||
-  //   taskTimeHourInput < 0 ||
-  //   taskTimeMinuteInput > 59 ||
-  //   taskTimeMinuteInput < 00
-  // ) {
-  //   alert("فرمت زمان وارد شده درست نمی باشد");
-  //   taskTimeHourInput.value = "";
-  //   taskTimeMinuteInput.value = "";
-  // }else{
-  //   makeTask();
-  // }
-  makeTask();
+  else if (isNaN(taskTimeHourInput.value) || isNaN(taskTimeMinuteInput.value)) {
+    alert("لطفا مقادیر ساعت رابه صورت عددی وارد کنید  ");
+    taskTimeHourInput.value = "";
+    taskTimeMinuteInput.value = "";
+  }
+  else if (
+    taskTimeHourInput > 23 ||
+    taskTimeHourInput < 0 ||
+    taskTimeMinuteInput > 59 ||
+    taskTimeMinuteInput < 00
+  ) {
+    alert("فرمت زمان وارد شده درست نمی باشد");
+    taskTimeHourInput.value = "";
+    taskTimeMinuteInput.value = "";
+  }else{
+    makeTask();
+  }
 };
 
 var clear = () => {
@@ -145,7 +145,9 @@ var taskDomMake = () => {
   task.appendChild(taskFooter);
   task.appendChild(taskCaption);
   tasksContainer.appendChild(task);
-
+// ********************************
+taskWait.style.display="none"
+// **********************************
   taskDeleteBtn.addEventListener("click", (a) => {
     tasks.forEach(function (e) {
       if (e.id == a.target.parentElement.id) {
@@ -194,7 +196,7 @@ var taskDomMake = () => {
   editCancel.addEventListener('click',close);
   
 
-  task.addEventListener('mouseenter' , ()=>{
+  task.addEventListener('mouseover' , ()=>{
     taskCaption.classList.add("captionShow")
   })
   task.addEventListener("mouseout",()=>{
@@ -213,7 +215,7 @@ var makeTask = () => {
       taskMonthInput.value +
       " / " +
       taskYearInput.value,
-    time: taskTimeHourInput.value + " / " + taskTimeMinuteInput.value,
+    time: taskTimeMinuteInput.value + " : " + taskTimeHourInput.value,
     caption: taskCaptionInput.value
   };
   taskDomMake();
